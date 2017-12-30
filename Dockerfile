@@ -26,7 +26,7 @@ RUN mv /var/www /www-start && mkdir -p /var/www && \
     sed -i -e "/^#user .*/cuser  $auser;" /etc/nginx/nginx.conf
 
 # expose only nginx HTTP port
-EXPOSE 80
+EXPOSE 8080
 
 # complete path to ttrss
 ENV SELF_URL_PATH http://localhost
@@ -44,5 +44,4 @@ ADD setup.sh /
 RUN chmod +x /setup.sh
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-VOLUME ["/var/www"]
 CMD sh /setup.sh && supervisord -c /etc/supervisor/conf.d/supervisord.conf
