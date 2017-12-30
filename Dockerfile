@@ -8,8 +8,8 @@ RUN apk --no-cache add curl tar php5-fpm php5-json php5-iconv php5-opcache php5-
 #RUN php5enmod mcrypt
 
 # add ttrss as the only nginx site
-ADD ttrss.nginx.conf /etc/nginx/conf.d/ttrss.conf
 RUN rm /etc/nginx/conf.d/default.conf
+ADD ttrss.nginx.conf /etc/nginx/conf.d/default.conf
 
 # fix user
 RUN deluser xfs && delgroup www-data && \
