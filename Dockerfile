@@ -21,6 +21,8 @@ RUN curl -SL https://git.tt-rss.org/git/tt-rss/archive/master.tar.gz | tar xzC /
     && chown www-data:www-data -R /var/www
 RUN mv /var/www /www-start && mkdir -p /var/www && \
     chmod -R 777 /var && \
+    chmod -R 777 /run && \
+    chmod -R 777 /etc && \
     chmod -R 777 /www-start && \
     mkdir /run/nginx && touch /run/nginx/nginx.pid && \
     auser=www-data && \
